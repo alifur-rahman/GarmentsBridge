@@ -1,8 +1,9 @@
 <p align="center">
-  <img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel Logo"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/logo-long.png" width="300" alt="Laravel Logo"/>
+ 
 </p>
 
-<h1 align="center">GarmentBridge</h1>
+<h1 align="center">GarmentsBridge</h1>
 <p align="center">
   Empowering Cloth Dealers and Retailers with a Unified Platform for Wholesale and Retail Management
 </p>
@@ -11,7 +12,7 @@
 
 ## 🧵 Introduction
 
-GarmentBridge is a Laravel-based digital platform designed to bridge the gap between cloth wholesalers and retailers in Bangladesh's thriving textile industry. It offers a centralized, feature-rich ecosystem enabling users to manage wholesale orders, POS retail operations, inventory, logistics, and more — all from a single unified interface.
+GarmentsBridge is a Laravel-based digital platform designed to bridge the gap between cloth wholesalers and retailers in Bangladesh's thriving textile industry. It offers a centralized, feature-rich ecosystem enabling users to manage wholesale orders, POS retail operations, inventory, logistics, and more — all from a single unified interface.
 
 ---
 
@@ -27,7 +28,7 @@ The current textile supply chain in Bangladesh faces significant inefficiencies:
 
 ## ✅ Proposed Solution
 
-GarmentBridge empowers the supply chain through:
+GarmentsBridge empowers the supply chain through:
 
 ### 🔹 For Dealers:
 - Verified profiles with product listings
@@ -66,7 +67,7 @@ GarmentBridge empowers the supply chain through:
 
 ## 📊 Platform Gap Analysis
 
-GarmentBridge fills the critical gaps in Bangladesh’s garment tech space:
+GarmentsBridge fills the critical gaps in Bangladesh’s garment tech space:
 - No existing unified platform for both wholesale and retail.
 - First to integrate POS, logistics, and e-commerce in one solution.
 - Advanced communications (messaging & video) directly within the platform.
@@ -75,10 +76,17 @@ GarmentBridge fills the critical gaps in Bangladesh’s garment tech space:
 
 ## 🖥️ Project Presentation
 
-You can view the presentation for a visual overview of GarmentBridge:
+For a visual and structured overview of **GarmentBridge**, please refer to the following resources:
 
-- **[📥 Download PPTX](https://yourdomain.com/path-to-file.pptx)**  
-- *(Optional)* **[🖨️ View as PDF](https://yourdomain.com/path-to-file.pdf)**
+- 📄 [**Project Details (PDF)**](https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/GarmentBridge%20project%20details.pdf)  
+  A comprehensive document outlining the platform's goals, features, future work, and gap analysis.
+
+- 🎞️ [**Presentation Slides (PPTX)**](https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/GarmentsBridge%20-%20Wholesale%20Solutions%20for%20retail%20Success.pptx)  
+  Ideal for presenting the project vision, problem statement, and proposed solutions in a slide format.
+
+- 📑 [**Presentation (View as PDF)**](https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/GarmentsBridge%20-%20Wholesale%20Solutions%20for%20retail%20Success.pdf)  
+  A PDF version of the presentation for convenient viewing or printing.
+
 
 ### 👁 Slide Preview (if converted to images)
 
