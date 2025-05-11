@@ -91,8 +91,14 @@ For a visual and structured overview of **GarmentBridge**, please refer to the f
 ### 👁 Slide Preview (if converted to images)
 
 <p align="center">
-  <img src="https://yourdomain.com/slides/slide1.png" width="500"/>
-  <img src="https://yourdomain.com/slides/slide2.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/1.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/2.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/3.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/4.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/5.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/6.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/7.png" width="500"/>
+  <img src="https://github.com/alifur-rahman/GarmentsBridge/blob/main/public/assets/git/sliders/8.png" width="500"/>
 </p>
 
 ---
