@@ -111,19 +111,12 @@
         color:white;
     }
 </style>
-@php($announcement=\App\CPU\Helpers::get_business_settings('announcement'))
-@if (isset($announcement) && $announcement['status']==1)
-    <div class="d-flex justify-content-between align-items-center" id="anouncement" style="background-color: {{ $announcement['color'] }};color:{{$announcement['text_color']}}">
-        <span></span>
-        <span style="text-align:center; font-size: 15px;">{{ $announcement['announcement'] }} </span>
-        <span class="ml-3 mr-3" style="font-size: 12px;cursor: pointer;color: darkred"  onclick="myFunction()">X</span>
-    </div>
-@endif
+
 
 
 <header class="box-shadow-sm rtl">
     <!-- Topbar-->
-    <div class="topbar">
+    <div class="topbar d-none ">
         <div class="container ">
             <div>
                 @php( $local = \App\CPU\Helpers::default_lang())
@@ -578,39 +571,46 @@
                                         {{ \App\CPU\translate('Dealer')}}  {{ \App\CPU\translate('zone')}}
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         style="min-width: 165px !important; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                        <a class="dropdown-item" href="{{route('shop.apply')}}">
-                                            <b>{{ \App\CPU\translate('Become a')}} {{ \App\CPU\translate('Dealer')}}</b>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="{{route('seller.auth.login')}}">
-                                            <b>{{ \App\CPU\translate('Dealer')}}  {{ \App\CPU\translate('login')}} </b>
-                                        </a>
+                                        style="min-width: 165px !important; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
+                                        @if(!auth('seller')->check())
+                                            <a class="dropdown-item" href="{{route('shop.apply')}}">
+                                                <b>{{ \App\CPU\translate('Become a')}} {{ \App\CPU\translate('Dealer')}}</b>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="{{route('seller.auth.login')}}">
+                                                <b>{{ \App\CPU\translate('Dealer')}}  {{ \App\CPU\translate('login')}} </b>
+                                            </a>
+                                        @else
+                                            <a class="dropdown-item" href="{{route('seller.auth.login')}}">
+                                               <b> {{ \App\CPU\translate('Dealer')}} <b>{{ \App\CPU\translate('Dashboard')}} </b>
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                             </li>
                         @endif
 
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        style="color: white;margin-top: 5px; padding-{{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 0">
-                                    {{ \App\CPU\translate('Retailer')}}  {{ \App\CPU\translate('zone')}}
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                     style="min-width: 165px !important; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-                                    <a class="dropdown-item" href="{{route('customer.auth.register')}}">
-                                        <b>{{ \App\CPU\translate('Become a')}} {{ \App\CPU\translate('Retailer')}}</b>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="{{route('customer.auth.login')}}">
-                                        <b>{{ \App\CPU\translate('Retailer')}}  {{ \App\CPU\translate('login')}} </b>
-                                    </a>
+                        @if(!auth('customer')->check())
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            style="color: white;margin-top: 5px; padding-{{Session::get('direction') === "rtl" ? 'right' : 'left'}}: 0">
+                                        {{ \App\CPU\translate('Retailer')}}  {{ \App\CPU\translate('zone')}}
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                        style="min-width: 165px !important; text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
+                                        <a class="dropdown-item" href="{{route('customer.auth.register')}}">
+                                            <b>{{ \App\CPU\translate('Become a')}} {{ \App\CPU\translate('Retailer')}}</b>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="{{route('customer.auth.login')}}">
+                                            <b>{{ \App\CPU\translate('Retailer')}}  {{ \App\CPU\translate('login')}} </b>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-
+                            </li>
+                        @endif
 
                     </ul>
                 </div>
@@ -619,8 +619,4 @@
     </div>
 </header>
 
-<script>
-function myFunction() {
-  $('#anouncement').addClass('d-none').removeClass('d-flex')
-}
-</script>
+

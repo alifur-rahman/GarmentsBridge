@@ -31,7 +31,7 @@ Route::group(['namespace' => 'Seller', 'prefix' => 'dealer', 'as' => 'seller.'],
     Route::group(['middleware' => ['seller']], function () {
         //dashboard routes
         Route::group(['prefix' => 'dashboard', 'as' => 'dashboard.'], function () {
-            Route::get('dashboard', 'DashboardController@dashboard');
+            Route::get('dashboard', 'DashboardController@dashboard')->name('dashboard');
             Route::get('/', 'DashboardController@dashboard')->name('index');
             Route::post('order-stats', 'DashboardController@order_stats')->name('order-stats');
             Route::post('business-overview', 'DashboardController@business_overview')->name('business-overview');

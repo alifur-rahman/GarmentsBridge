@@ -37,7 +37,7 @@
 
 @section('content')
     <div class="container for-container rtl" style="text-align: {{Session::get('direction') === "rtl" ? 'right' : 'left'}};">
-        <h2 class="text-center mt-3 headerTitle">{{\App\CPU\translate('About Our Company')}}</h2>
+        <h2 class="text-center mt-3 headerTitle">{{\App\CPU\translate('About Us')}}</h2>
         <div class="for-padding">
             {!! $about_us['value'] !!}
         </div>

@@ -12,7 +12,7 @@
     }
 </style>
 
-<footer class="page-footer font-small mdb-color pt-3 rtl">
+<footer class="page-footer font-small mdb-color pt-3 pb-3 rtl">
     <!-- Footer Links -->
     <div class="container text-center" style="padding-bottom: 13px;">
 
@@ -117,7 +117,7 @@
             </div>
             <!-- Grid column -->
 
-<!-- Messenger Chat Plugin Code -->
+    <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
@@ -250,6 +250,24 @@
         <!-- Grid row -->
     </div>
     <!-- Footer Links -->
+
+    <?php ($announcement=\App\CPU\Helpers::get_business_settings('announcement')); ?>
+    <?php if(isset($announcement) && $announcement['status']==1): ?>
+        <div class="d-flex justify-content-between align-items-center " id="anouncement" style="background-color: <?php echo e($announcement['color']); ?>;color:<?php echo e($announcement['text_color']); ?>; position: fixed; bottom: 0;width: 100%; z-index:99">
+            <span></span>
+            <span style="text-align:center; font-size: 15px;"><?php echo e($announcement['announcement']); ?> </span>
+            <span class="ml-3 mr-3" style="font-size: 12px;cursor: pointer;color: darkred"  onclick="myFunction()">X</span>
+        </div>
+        <script>
+            function myFunction() {
+                $('#anouncement').addClass('d-none').removeClass('d-flex')
+            }
+        </script>
+    <?php endif; ?>
+
+
 </footer>
 <!-- Footer -->
+
+
 <?php /**PATH E:\XAMMP\htdocs\GarmentsBridge\resources\views/layouts/front-end/partials/_footer.blade.php ENDPATH**/ ?>

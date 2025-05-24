@@ -111,19 +111,12 @@
         color:white;
     }
 </style>
-<?php ($announcement=\App\CPU\Helpers::get_business_settings('announcement')); ?>
-<?php if(isset($announcement) && $announcement['status']==1): ?>
-    <div class="d-flex justify-content-between align-items-center" id="anouncement" style="background-color: <?php echo e($announcement['color']); ?>;color:<?php echo e($announcement['text_color']); ?>">
-        <span></span>
-        <span style="text-align:center; font-size: 15px;"><?php echo e($announcement['announcement']); ?> </span>
-        <span class="ml-3 mr-3" style="font-size: 12px;cursor: pointer;color: darkred"  onclick="myFunction()">X</span>
-    </div>
-<?php endif; ?>
+
 
 
 <header class="box-shadow-sm rtl">
     <!-- Topbar-->
-    <div class="topbar">
+    <div class="topbar d-none ">
         <div class="container ">
             <div>
                 <?php ( $local = \App\CPU\Helpers::default_lang()); ?>
@@ -591,40 +584,47 @@
 
                                     </button>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                         style="min-width: 165px !important; text-align: <?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>;">
-                                        <a class="dropdown-item" href="<?php echo e(route('shop.apply')); ?>">
-                                            <b><?php echo e(\App\CPU\translate('Become a')); ?> <?php echo e(\App\CPU\translate('Dealer')); ?></b>
-                                        </a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="<?php echo e(route('seller.auth.login')); ?>">
-                                            <b><?php echo e(\App\CPU\translate('Dealer')); ?>  <?php echo e(\App\CPU\translate('login')); ?> </b>
-                                        </a>
+                                        style="min-width: 165px !important; text-align: <?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>;">
+                                        <?php if(!auth('seller')->check()): ?>
+                                            <a class="dropdown-item" href="<?php echo e(route('shop.apply')); ?>">
+                                                <b><?php echo e(\App\CPU\translate('Become a')); ?> <?php echo e(\App\CPU\translate('Dealer')); ?></b>
+                                            </a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="<?php echo e(route('seller.auth.login')); ?>">
+                                                <b><?php echo e(\App\CPU\translate('Dealer')); ?>  <?php echo e(\App\CPU\translate('login')); ?> </b>
+                                            </a>
+                                        <?php else: ?>
+                                            <a class="dropdown-item" href="<?php echo e(route('seller.auth.login')); ?>">
+                                               <b> <?php echo e(\App\CPU\translate('Dealer')); ?> <b><?php echo e(\App\CPU\translate('Dashboard')); ?> </b>
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </li>
                         <?php endif; ?>
 
-                        <li class="nav-item">
-                            <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                                        style="color: white;margin-top: 5px; padding-<?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>: 0">
-                                    <?php echo e(\App\CPU\translate('Retailer')); ?>  <?php echo e(\App\CPU\translate('zone')); ?>
+                        <?php if(!auth('customer')->check()): ?>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            style="color: white;margin-top: 5px; padding-<?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>: 0">
+                                        <?php echo e(\App\CPU\translate('Retailer')); ?>  <?php echo e(\App\CPU\translate('zone')); ?>
 
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
-                                     style="min-width: 165px !important; text-align: <?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>;">
-                                    <a class="dropdown-item" href="<?php echo e(route('customer.auth.register')); ?>">
-                                        <b><?php echo e(\App\CPU\translate('Become a')); ?> <?php echo e(\App\CPU\translate('Retailer')); ?></b>
-                                    </a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="<?php echo e(route('customer.auth.login')); ?>">
-                                        <b><?php echo e(\App\CPU\translate('Retailer')); ?>  <?php echo e(\App\CPU\translate('login')); ?> </b>
-                                    </a>
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton"
+                                        style="min-width: 165px !important; text-align: <?php echo e(Session::get('direction') === "rtl" ? 'right' : 'left'); ?>;">
+                                        <a class="dropdown-item" href="<?php echo e(route('customer.auth.register')); ?>">
+                                            <b><?php echo e(\App\CPU\translate('Become a')); ?> <?php echo e(\App\CPU\translate('Retailer')); ?></b>
+                                        </a>
+                                        <div class="dropdown-divider"></div>
+                                        <a class="dropdown-item" href="<?php echo e(route('customer.auth.login')); ?>">
+                                            <b><?php echo e(\App\CPU\translate('Retailer')); ?>  <?php echo e(\App\CPU\translate('login')); ?> </b>
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-
+                            </li>
+                        <?php endif; ?>
 
                     </ul>
                 </div>
@@ -633,9 +633,5 @@
     </div>
 </header>
 
-<script>
-function myFunction() {
-  $('#anouncement').addClass('d-none').removeClass('d-flex')
-}
-</script>
+
 <?php /**PATH E:\XAMMP\htdocs\GarmentsBridge\resources\views/layouts/front-end/partials/_header.blade.php ENDPATH**/ ?>

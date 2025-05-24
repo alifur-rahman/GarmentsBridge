@@ -12,7 +12,7 @@
     }
 </style>
 
-<footer class="page-footer font-small mdb-color pt-3 rtl">
+<footer class="page-footer font-small mdb-color pt-3 pb-3 rtl">
     <!-- Footer Links -->
     <div class="container text-center" style="padding-bottom: 13px;">
 
@@ -115,7 +115,7 @@
             </div>
             <!-- Grid column -->
 
-<!-- Messenger Chat Plugin Code -->
+    <!-- Messenger Chat Plugin Code -->
     <div id="fb-root"></div>
 
     <!-- Your Chat Plugin code -->
@@ -263,5 +263,23 @@
         <!-- Grid row -->
     </div>
     <!-- Footer Links -->
+
+    @php($announcement=\App\CPU\Helpers::get_business_settings('announcement'))
+    @if (isset($announcement) && $announcement['status']==1)
+        <div class="d-flex justify-content-between align-items-center " id="anouncement" style="background-color: {{ $announcement['color'] }};color:{{$announcement['text_color']}}; position: fixed; bottom: 0;width: 100%; z-index:99">
+            <span></span>
+            <span style="text-align:center; font-size: 15px;">{{ $announcement['announcement'] }} </span>
+            <span class="ml-3 mr-3" style="font-size: 12px;cursor: pointer;color: darkred"  onclick="myFunction()">X</span>
+        </div>
+        <script>
+            function myFunction() {
+                $('#anouncement').addClass('d-none').removeClass('d-flex')
+            }
+        </script>
+    @endif
+
+
 </footer>
 <!-- Footer -->
+
+

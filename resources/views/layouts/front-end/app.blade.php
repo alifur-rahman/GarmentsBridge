@@ -637,7 +637,6 @@
             border-top-right-radius: 0px;
         }
     </style>
-    <meta name="google-site-verification" content="AvGTxtCdRDlCc099hQaeWIK92yfA4VZ9Kr7Zl3lEKxE" />
 </head>
 <!-- Body-->
 <body class="toolbar-enabled">
@@ -676,8 +675,8 @@
     </div>-->
 
 <!-- Back To Top Button-->
-<a class="btn-scroll-top" href="#top" data-scroll>
-    <span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top</span><i
+<a class="btn-scroll-top" href="#top" data-scroll style="bottom: 2.25rem;">
+    <span class="btn-scroll-top-tooltip text-muted font-size-sm mr-2">Top </span><i
         class="btn-scroll-top-icon czi-arrow-up"> </i>
 </a>
 
